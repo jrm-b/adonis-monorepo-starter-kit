@@ -1,0 +1,28 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  "@swc/core": true
+
+catalog:
+  "@jrm-b/typescript-tooling-configs": "github:jrm-b/typescript-tooling-configs#c8777bf"
+  "@tuyau/core": ^1.2.2
+  "@types/node": ^25.9.2
+  "@types/pg": ^8.20.0
+  kysely: ^0.29.2
+  kysely-codegen: ^0.20.0
+  oxfmt: ^0.54.0
+  oxlint: ^1.69.0
+  oxlint-tsgolint: ^0.23.0
+  pg: ^8.22.0
+  ts-pattern: ^5.9.0
+  tsdown: ^0.22.2
+  turbo: ^2.9.17
+  typescript: ^6.0.3
+  uuid: ^14.0.1
+
+catalogMode: prefer
+
+minimumReleaseAge: 4320 # 3 days
+minimumReleaseAgeStrict: true

@@ -1,0 +1,7 @@
+{{#var validatorFileName = generators.validatorFileName(entity.name)}}
+{{{
+  exports({
+    to: app.makePath("src", entity.path, "validators", validatorFileName)
+  })
+}}}
+import vine from '@vinejs/vine'

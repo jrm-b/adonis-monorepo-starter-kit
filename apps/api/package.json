@@ -1,0 +1,68 @@
+{
+  "name": "@repo/api",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "type": "module",
+  "imports": {
+    "#auth/*": "./src/auth/*.js",
+    "#core/*": "./src/core/*.js",
+    "#database/*": "./database/*.js",
+    "#config/*": "./config/*.js",
+    "#start/*": "./start/*.js",
+    "#tests/*": "./tests/*.js",
+    "#types/*": "./types/*.js",
+    "#generated/*": "./.adonisjs/server/*.js"
+  },
+  "exports": {
+    "./registry": "./.adonisjs/client/registry/index.ts",
+    "./types/data": "./types/data.ts"
+  },
+  "scripts": {
+    "start": "node bin/server.js",
+    "build": "node ace build",
+    "codegen": "kysely-codegen --camel-case --dialect postgres --url postgres://api:api@localhost:5432/api --out-file=types/db.ts",
+    "dev": "node ace serve --hmr",
+    "db:codegen": "pnpm db:migrate && pnpm codegen",
+    "db:migrate": "node ace kysely:migrate",
+    "db:rollback": "node ace kysely:rollback",
+    "test": "node ace test",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@adonisjs/auth": "^10.1.0",
+    "@adonisjs/core": "^7.3.3",
+    "@adonisjs/cors": "^3.0.0",
+    "@adonisjs/session": "^8.1.0",
+    "@tuyau/core": "catalog:",
+    "kysely": "catalog:",
+    "pg": "catalog:",
+    "reflect-metadata": "^0.2.2",
+    "uuid": "catalog:"
+  },
+  "devDependencies": {
+    "@adonisjs/assembler": "^8.4.0",
+    "@adonisjs/tsconfig": "^2.0.0",
+    "@japa/assert": "^4.2.0",
+    "@japa/plugin-adonisjs": "^5.2.0",
+    "@japa/runner": "^5.3.0",
+    "@poppinss/ts-exec": "^1.4.4",
+    "@types/node": "catalog:",
+    "@types/pg": "catalog:",
+    "hot-hook": "^1.0.0",
+    "kysely-codegen": "catalog:",
+    "pino-pretty": "^13.1.3",
+    "typescript": "~5.9.3"
+  },
+  "bundleDependencies": [
+    "@adonisjs/core",
+    "reflect-metadata"
+  ],
+  "hotHook": {
+    "boundaries": [
+      "./src/auth/controllers/**/*.ts",
+      "./src/auth/middleware/*.ts",
+      "./src/core/middleware/*.ts"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "adonis-monorepo-starter-kit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "turbo run build",
+    "checks": "turbo run checks",
+    "clean:all": "find . -type d -regextype posix-extended -regex '.*/(node_modules|dist|build|.turbo)$' -exec rm -rf {} + && rm pnpm-lock.yaml",
+    "dev": "turbo run dev",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint --type-aware",
+    "lint:fix": "oxlint --type-aware --fix",
+    "typecheck": "turbo run typecheck"
+  },
+  "dependencies": {
+    "@jrm-b/typescript-tooling-configs": "catalog:"
+  },
+  "devDependencies": {
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
+    "oxlint-tsgolint": "catalog:",
+    "turbo": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "packageManager": "pnpm@11.5.0"
+}
